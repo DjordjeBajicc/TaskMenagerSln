@@ -35,7 +35,7 @@ namespace TaskMenager
                         options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 21))));
 
                     services.AddScoped<ITaskService, TaskService>();
-                    services.AddScoped<CreateTask>(); 
+                    services.AddTransient<CreateTask>();
                     services.AddScoped<MainWindow>();
                 })
                 .Build();

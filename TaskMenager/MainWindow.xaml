@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:TaskMenager"
         xmlns:converters="clr-namespace:TaskMenager.Utils"
         mc:Ignorable="d"
-        Title="TaskMenager" Height="450" Width="800">
-
+        Title="TaskMenager" Height="450" Width="800" >
+    <Window.Background>
+        <ImageBrush ImageSource="Assets/background.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -29,29 +31,50 @@
         </StackPanel>
        
       
-        <TextBox Text="Za uraditi" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"/>
-        <TextBox Text="U toku" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center"/>
-        <TextBox Text="Uradjeno" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"/>
-        <ListView Name="ToDoList" Background="LightGreen" MouseDoubleClick="ToDoList_MouseDoubleClick" AllowDrop="True" Drop="ToDoList_Drop" BorderThickness="1px" BorderBrush="Black" Grid.Row="3" Grid.Column="0" ItemsSource="{Binding ToDoTasks}">
+        <TextBox Text="Za uraditi" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+        <TextBox Text="U toku" Grid.Row="2" Grid.Column="1" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+        <TextBox Text="Uradjeno" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+        <ListView Name="ToDoList" Margin="5" MouseDoubleClick="ToDoList_MouseDoubleClick" AllowDrop="True" Drop="ToDoList_Drop" BorderThickness="2,2,2,2" BorderBrush="White" Grid.Row="3" Grid.Column="0" ItemsSource="{Binding ToDoTasks}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="#80FFFFFF"/>
+
+                    <Setter Property="Padding" Value="5"/>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock MouseMove="TextBlock_MouseMove" Text="{Binding Name}" HorizontalAlignment="Center"/>
+                    <TextBlock FontSize="15" FontWeight="Bold" MouseMove="TextBlock_MouseMove" Text="{Binding Name}" HorizontalAlignment="Center"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView Name="InProgressList" Background="LightGreen" MouseDoubleClick="ToDoList_MouseDoubleClick" AllowDrop="True" Drop="ToDoList_Drop" BorderThickness="1px" BorderBrush="Black" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding InProgressTasks}">
+        <ListView Name="InProgressList" Margin="5"  MouseDoubleClick="ToDoList_MouseDoubleClick" AllowDrop="True" Drop="ToDoList_Drop" BorderThickness="2,2,2,2" BorderBrush="White" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding InProgressTasks}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="#80FFFFFF"/>
+
+                    <Setter Property="Padding" Value="5"/>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock MouseMove="TextBlock_MouseMove" Text="{Binding Name}" HorizontalAlignment="Center"/>
+                    <TextBlock FontSize="15" FontWeight="Bold" MouseMove="TextBlock_MouseMove" Text="{Binding Name}" HorizontalAlignment="Center"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView Name="FinishedList" Background="LightGreen" MouseDoubleClick="ToDoList_MouseDoubleClick" AllowDrop="True" Drop="ToDoList_Drop" BorderThickness="1px" BorderBrush="Black" Grid.Row="3" Grid.Column="2" ItemsSource="{Binding FinishedTasks}">
+        <ListView Name="FinishedList" Margin="5" MouseDoubleClick="ToDoList_MouseDoubleClick" AllowDrop="True" Drop="ToDoList_Drop" BorderThickness="2,2,2,2" BorderBrush="White" Grid.Row="3" Grid.Column="2" ItemsSource="{Binding FinishedTasks}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="#80FFFFFF"/>
+
+                    <Setter Property="Padding" Value="5"/>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock MouseMove="TextBlock_MouseMove" Text="{Binding Name}" HorizontalAlignment="Center"/>
+                    <TextBlock FontSize="15" FontWeight="Bold" MouseMove="TextBlock_MouseMove" Text="{Binding Name}" HorizontalAlignment="Center"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
